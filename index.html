@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prem Kumar | Home</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: white;
+
+            background:
+                radial-gradient(circle at top left, #667eea, transparent 35%),
+                radial-gradient(circle at bottom right, #764ba2, transparent 35%),
+                #111827;
+
+            min-height: 100vh;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            width: 100%;
+            padding: 18px 8%;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: rgba(17, 24, 39, 0.75);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #a78bfa;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #c4b5fd;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 88vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 60px 8%;
+        }
+
+        .hero-container {
+            width: 100%;
+            max-width: 1100px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 50px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .small-title {
+            color: #c4b5fd;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 7vw, 75px);
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #a78bfa;
+        }
+
+        .hero-description {
+            max-width: 600px;
+
+            font-size: 19px;
+            line-height: 1.7;
+
+            color: #d1d5db;
+        }
+
+        /* BUTTONS */
+
+        .buttons {
+            margin-top: 30px;
+
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 25px;
+
+            border-radius: 30px;
+
+            text-decoration: none;
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .primary {
+            background: white;
+            color: #5b21b6;
+        }
+
+        .secondary {
+            border: 1px solid rgba(255,255,255,0.4);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        /* PROFILE PHOTO */
+
+        .profile-area {
+            flex: 0 0 330px;
+
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-circle {
+            width: 300px;
+            height: 300px;
+
+            border-radius: 50%;
+
+            padding: 8px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #a78bfa,
+                    #6366f1,
+                    #c084fc
+                );
+
+            box-shadow:
+                0 0 50px rgba(139,92,246,0.5);
+
+            animation:
+                float 4s ease-in-out infinite;
+        }
+
+        .profile-circle img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            background: #1f2937;
+
+            display: block;
+        }
+
+        @keyframes float {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+
+            font-size: 38px;
+
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            color: #a78bfa;
+        }
+
+        /* ABOUT */
+
+        .about-card {
+            max-width: 900px;
+
+            margin: auto;
+
+            padding: 35px;
+
+            background:
+                rgba(255,255,255,0.08);
+
+            border:
+                1px solid rgba(255,255,255,0.12);
+
+            border-radius: 25px;
+
+            backdrop-filter: blur(15px);
+
+            text-align: center;
+
+            line-height: 1.8;
+
+            color: #d1d5db;
+        }
+
+        /* SKILLS */
+
+        .skills {
+            display: grid;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(200px, 1fr));
+
+            gap: 20px;
+
+            max-width: 1000px;
+
+            margin: auto;
+        }
+
+        .skill-card {
+            padding: 30px 20px;
+
+            text-align: center;
+
+            background:
+                rgba(255,255,255,0.08);
+
+            border:
+                1px solid rgba(255,255,255,0.12);
+
+            border-radius: 20px;
+
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+
+            background:
+                rgba(255,255,255,0.14);
+        }
+
+        .skill-icon {
+            font-size: 45px;
+
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .skill-card p {
+            color: #cbd5e1;
+        }
+
+        /* CONTACT */
+
+        .contact-card {
+            max-width: 700px;
+
+            margin: auto;
+
+            text-align: center;
+
+            padding: 40px;
+
+            background:
+                rgba(255,255,255,0.08);
+
+            border-radius: 25px;
+
+            border:
+                1px solid rgba(255,255,255,0.12);
+        }
+
+        .contact-card p {
+            color: #d1d5db;
+
+            margin-bottom: 25px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+
+            padding: 30px;
+
+            border-top:
+                1px solid rgba(255,255,255,0.1);
+
+            color: #9ca3af;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            nav ul li:nth-child(2),
+            nav ul li:nth-child(3) {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 50px;
+            }
+
+            .hero-container {
+                flex-direction: column-reverse;
+
+                text-align: center;
+            }
+
+            .hero-description {
+                margin: auto;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .profile-circle {
+                width: 240px;
+                height: 240px;
+            }
+
+            .profile-area {
+                flex: auto;
+            }
+
+            section {
+                padding: 70px 5%;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            Prem<span>.</span>
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#skills">Skills</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+            
+ <li>
+  <a href="https://www.instagram.com/mr___prem.09" target="_blank">
+    <img src="photo.jpg" alt="Insta" style="width: 28px; height: 28px; border-radius: 50%; vertical-align: middle; margin-right: 6px;">
+    Instagram
+  </a>
+</li>
+
+
+            
+        
+
+        </ul>
+
+    </nav>
+
+
+    <!-- HOME -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-container">
+
+            <div class="hero-text">
+
+                <p class="small-title">
+                    👋 Welcome to my website
+                </p>
+
+                <h1>
+                    Hi, I'm <span>Prem Kumar</span>
+                </h1>
+
+                <p class="hero-description">
+                    I'm learning HTML, CSS and JavaScript
+                    and building my own website step by step.
+                    This is my personal space on the web.
+                </p>
+
+                <div class="buttons">
+
+                    <a href="#about" class="btn primary">
+                        Explore My Website
+                    </a>
+
+                    <a href="#contact" class="btn secondary">
+                        Contact Me
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROFILE PHOTO -->
+
+            <div class="profile-area">
+
+                <div class="profile-circle">
+
+                    <img
+                        id="profilePhoto"
+                        src="photo2.jpg"
+                        alt="Prem Kumar"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+        <h2 class="section-title">
+            About <span>Me</span>
+        </h2>
+
+        <div class="about-card">
+
+            <p>
+                Hello! I'm Prem Kumar.
+                This is my personal website where
+                I'm learning and experimenting with
+                web development.
+            </p>
+
+            <br>
+
+            <p>
+                I'm currently learning how websites work
+                using HTML, CSS and JavaScript.
+                My goal is to keep improving and create
+                better projects in the future.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+
+        <h2 class="section-title">
+            My <span>Skills</span>
+        </h2>
+
+        <div class="skills">
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+                    🌐
+                </div>
+
+                <h3>
+                    HTML
+                </h3>
+
+                <p>
+                    Building website structure.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+                    🎨
+                </div>
+
+                <h3>
+                    CSS
+                </h3>
+
+                <p>
+                    Designing beautiful websites.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="skill-icon">
+                    ⚡
+                </div>
+
+                <h3>
+                    JavaScript
+                </h3>
+
+                <p>
+                    Adding interaction and functionality.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+<section id="contact">
+  <div class="contact-card">
+    <h2>Contact Me</h2>
+    <p>Thanks for visiting my website! 🙂</p>
+
+    <!-- 1. Email ID yahan dale -->
+    <p>
+      <strong>Email:</strong> prempal635154@gmail.com
+    </p>
+    <a href="mailto:prempal635154@gmail.com" class="btn primary">
+      ✉️ Email Me
+    </a>
+
+    <!-- 2. Contact Number yahan dale -->
+    <p>
+      <strong>Phone:</strong> +91 6351548039
+    </p>
+    <a href="tel:+916351548039" class="btn primary">
+      📞 Call Me
+    </a>
+
+    <!-- 3. Extra: WhatsApp par bhi contact -->
+    <a href="https://wa.me/916351548039" class="btn primary" target="_blank">
+      WhatsApp Me
+    </a>
+
+  </div>
+</section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026 Prem Kumar | My Personal Website
+
+    </footer>
+
+</body>
+
+</html>
